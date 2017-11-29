@@ -26,32 +26,61 @@
 </form>
 
 <hr />
-@if (ViewBag.jobs != null)
-{
+<style>
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-    <h3>@ViewBag.jobs.Count Result(s)</h3>
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
 
-    // TODO #2 - Loop over jobs dictionary and display all job fields
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-    @foreach (Dictionary<string, string> job in ViewBag.jobs)
 
+
+        #customers th {
+            padding-top: 8px;
+            
+            text-align: left;
+            
+        }
+</style>
+
+
+
+    @if (ViewBag.jobs != null)
     {
 
-        <table>
-            @foreach (KeyValuePair<string, string> result in job)
+        <h3>@ViewBag.jobs.Count Result(s)</h3>
 
-            {
+        // TODO #2 - Loop over jobs dictionary and display all job fields
 
-                <tr>
-                    <th> @result.Key</th> <td> @result.Value </td>
-                    
-                </tr>
+        @foreach (Dictionary<string, string> job in ViewBag.jobs)
+
+        {
+
+            <table class="job-listing">
+                @foreach (KeyValuePair<string, string> result in job)
+
+                {
+
+                    <tr>
+                        <th> @result.Key</th>
+                        <td> @result.Value </td>
+
+                    </tr>
+
+                    <br />
+
+                }
+            </table>
 
 
-
-            }
-        </table>
-
-
+        }
     }
-}
