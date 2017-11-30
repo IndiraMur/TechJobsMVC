@@ -8,14 +8,15 @@
 
     {
 
-        <table>
+        <table class="job-listing">
             @foreach (KeyValuePair<string, string> result in job)
 
             {
 
                 <tr>
-                    <th> @result.Key</th> <td> @result.Value </td>
-                    <br/>
+                    <th> @result.Key</th>
+                    <td> @result.Value </td>
+                    
                 </tr>
 
 
